@@ -1,0 +1,74 @@
+/* add background*/
+body {
+    background-image:url("../image/background.jpg");
+    background-repeat: no-repeat;
+    background-position: top right;
+}
+
+/* Change the color of heading */
+h1 {
+    color: blue;
+}
+
+/* Set the list style for unordered lists to "square" */
+ul {
+    list-style-type: square;
+}
+
+/* Set the list style for ordered lists to "upper roman". */
+ol {
+    list-style-type: upper-roman;
+}
+
+/* Set the nested list style for ordered lists to "lower roman". */
+ul ol {
+    list-style-type: lower-roman;
+}
+
+/* unvisited link */
+a:link {
+    text-decoration: none;
+    color: red;
+}
+
+/* visited link */
+a:visited {
+    text-decoration: none;
+    color: blue;
+}
+
+/* mouse over link */
+a:hover {
+    text-decoration: underline;
+    color: black;
+}
+
+/* selected link */
+a:active {
+    text-decoration: underline;
+    color: green;
+}
+
+/* change the size and font and color for paragraph */
+.para1 {
+    font-size: 18px;
+    color: teal;
+    font-style:italic;
+}
+.para2 {
+    font-size: 16;
+    color:saddlebrown;
+    font-style: initial;
+}
+.para3 {
+    font-size: 20px;
+    color: black;
+    font-style:oblique
+}
+
+/* add border to all h1 and change padding and margin in sheet1. */
+.sheet1 h1 {
+    border:2px solid black;
+    padding: 10px;
+    margin: 10px;
+}
