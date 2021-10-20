@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>javaScript-sheet5</title>
+        <script type="text/JavaScript">
+        document.writeln("<h1>BMI Calculator Create Using JavaScript" + "</h1>");
+        document.writeln("<label for='weight'>Your weight(kg): " + "</label>");
+        document.writeln("<input type='number' id='weight'><br><br>");
+        document.writeln("<label for='height'>Your Height(cm): " + "</label>");
+        document.writeln("<input type='number' id='height'><br><br>");
+        document.writeln("<button onclick='BMICalculator()'>Calculate BMI" + "</button><br><br>");
+        document.writeln("Your BIM:" + "<span id='BMI'></span>" + "<br><br>");
+        document.writeln("This Means: Your BMI:" + "<span id='describe'></span>");
+        function BMICalculator() {
+            var weight = document.getElementById("weight").value;
+            var height = document.getElementById("height").value;
+            height = height/100;
+            var Bmi = weight / (height * height );
+            document.getElementById("BMI").innerHTML= Bmi;
+            if (Bmi<18.5) {
+                document.getElementById("describe").innerHTML= "That you are Underweight";
+            }
+            else if (Bmi>= 18.5 && Bmi<=24.9) {
+                document.getElementById("describe").innerHTML= "That you are healthy";
+            }
+            else if (Bmi>= 25 && Bmi<=29.9) {
+                document.getElementById("describe").innerHTML= "That you are Overweight";
+            }
+            else {
+                document.getElementById("describe").innerHTML= "That you are Obesity";
+            }
+             
+        }
+        </script>
+    </head>
+    <body>
+    </body>
+</html>
