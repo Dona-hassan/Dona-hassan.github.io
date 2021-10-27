@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>JavaScript FORM Validation</title>
+        <style type="text/css">
+        .err{
+            color: red;
+            font-size: 10pt;
+
+        }
+        </style>
+        <script>
+            function validateform() {
+                var nameRegEx =  /^[A-Za-z]+$/;
+                var passRegEx = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W)/;
+                var name = document.getElementById("fn");
+                var username = document.getElementById("user");
+                password = document.getElementById("pass1");
+                confpass = document.getElementById("pass2");
+                nameValidate(name, nameRegEx);
+                usrtnameValidate(username);
+                passValidate(password, username, 10, 6, passRegEx);
+                cofpassValidate(password,confpass)
+            }
+
+            function nameValidate(name, nameRegEx) {
+                if(name.value.length == 0) {
+                   document.getElementById("fnerror").innerHTML="*name must be filled out";
+                }
+                else if(!name.value.match(nameRegEx))
+                {
+                    document.getElementById("fnerror").innerHTML="*only letters is allowed";
+                }
+                else {
+                    document.getElementById("fnerror").innerHTML="";
+                }
+                return true;   
+            }
+
+            function usrtnameValidate(username) {
+                if(username.value.length == 0) {
+                    document.getElementById("usererror").innerHTML="*username must be filled out";
+                }
+                else {
+                    document.getElementById("usererror").innerHTML="";
+                }
+            }
+            
+            function passValidate(pass, username, mx, min, passRegEx) {
+                passLength = pass.value.length;
+                if(passLength == 0) {
+                    document.getElementById("pass1error").innerHTML="*password must be filled out";
+                    return false;
+                }
+                else if(passLength >=mx || passLength < min) {
+                    document.getElementById("pass1error").innerHTML="*Your password should be 6-10 length";
+                }
+                else if(pass.value == username.value) {
+                    document.getElementById("pass1error").innerHTML="*Your password Should not the same of user-name";
+                    return false;
+                }
+                else if(!pass.value.match(passRegEx)) {
+                    document.getElementById("pass1error").innerHTML="*Your password should at least one small letter and one capital letter and one digit";
+                    return false;
+                }
+                else {
+                    document.getElementById("pass1error").innerHTML="";
+                }
+            }
+
+            function cofpassValidate(pass1,pass2) {
+                if(pass1.value.length == 0) {
+                    document.getElementById("pass2error").innerHTML="*Confrim password must be filled out";
+                }
+                else if(pass1.value != pass2.value) {
+                    document.getElementById("pass2error").innerHTML="*should equal to password";
+                }
+                else {
+                    document.getElementById("pass2error").innerHTML="";
+                }
+            }
+        </script>
+    </head>
+    <body lang="en">
+        <h1>SIGN UP</h1>
+        <form >
+            <label for="fn"> Full name</label>
+            <input type="text" id="fn" name="fullname"><span class="err" id="fnerror"></span><br><br>
+            <label for="user">User name</label>
+            <input type="text" id="user" name="username"><span class="err" id="usererror"></span><br><br>
+            <label for="pass1">Password</label>
+            <input type="password" id="pass1" name="passwors"><span class="err" id="pass1error"></span><br><br>
+            <label for="pass2">Confrim password</label>
+            <input type="password" id="pass2"><span class="err" id="pass2error"></span><br><br>
+            <input type="button" onclick="validateform()" value="Sign up">
+        </form>
+    </body>
+</html>
