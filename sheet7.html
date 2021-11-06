@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="rtf-8">
+        <title>Toggle Dark and Light Mode using jQuery</title>
+        <script src="JQuery/jquery-3.6.0.min.js"></script>
+        <style>
+            .dark-mode {
+                background-color: black;
+                color: white;
+            }
+            body{
+                background-color: white;
+                color: black;
+            }
+            
+        </style>
+
+        <script>
+            $(document).ready(function(){
+                $("#changeMode").click(function(){
+                    $("body").toggleClass("dark-mode");
+                });
+            });
+
+
+        </script>
+    </head>
+    <body lang="en">
+        <button id="changeMode">change Mode </button>
+        <h1>jQuery</h1>
+        <p>jQuery is a lightweight, "write less, do more", JavaScript library.</p>
+        <p>The purpose of jQuery is to make it much easier to use JavaScript on your website.</p>
+        <p>jQuery takes a lot of common tasks that require many lines of JavaScript code to accomplish, 
+            and wraps them into methods that you can call with a single line of code.</p>
+
+    </body>
+</html>
